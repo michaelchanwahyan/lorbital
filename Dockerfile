@@ -71,10 +71,12 @@ RUN cd /SOURCE ; mkdir -p ws_livox/src ;\
     git clone https://github.com/Livox-SDK/livox_ros_driver.git ws_livox/src ;\
     cd ws_livox/src/livox_ros_driver ; git checkout tags/v2.5.0
 
-RUN cd /SOURCE ; mkdir catkin_ws ; cd catkin_ws ; mkdir src ; cd src ;\
+RUN cd /SOURCE ; mkdir ws_loamlivox ; cd ws_loamlivox ; mkdir src ; cd src ;\
     git clone https://github.com/hku-mars/loam_livox.git ; cd loam_livox ;\
     git checkout tags/V1.0.0
 
 COPY [ ".bashrc" , ".vimrc" , "/root/" ]
+
+COPY [ "startup.sh" , "/" ]
 
 CMD [ "/bin/bash" ]
